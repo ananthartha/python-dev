@@ -16,5 +16,4 @@ if ! id "$1" &>/dev/null; then
       echo "Public key from env variable added"
 fi
 
-systemctl start ssh
-tail -f /var/log/auth.log
+/usr/sbin/sshd -D -e -p 22
