@@ -17,10 +17,8 @@ if ! id "$1" &>/dev/null; then
 
   [[ -n "$PUBLIC_KEY" ]] && \
       [[ ! $(grep "$PUBLIC_KEY" /home/$USER_NAME/.ssh/authorized_keys) ]] && \
-      echo "$PUBLIC_KEY" >> //home/$USER_NAME/.ssh/authorized_keys && \
+      echo "$PUBLIC_KEY" >> /home/$USER_NAME/.ssh/authorized_keys && \
       echo "Public key from env variable added"
 fi
 
-# /usr/sbin/sshd -D -e -d -p 22
-
-# docker run -d -e USER_NAME=test -e PUBLIC_KEY="$(cat /home/ssm-user/.ssh/id_ed25519.pub)" ghcr.io/ananthartha/python-dev
+/usr/sbin/sshd -D -e -d -p 22
