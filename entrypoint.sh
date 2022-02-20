@@ -18,4 +18,4 @@ if ! id "$1" &>/dev/null; then
       echo "Public key from env variable added"
 fi
 
-/usr/sbin/sshd -D -e -p 22
+/usr/sbin/sshd -D -e -d -p 22
