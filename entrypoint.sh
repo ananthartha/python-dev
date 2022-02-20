@@ -11,7 +11,7 @@ mkdir -p /run/sshd
 if ! id "$1" &>/dev/null; then
   [ $(getent group developer) ] || groupadd -g $PGID -o developer
 
-  if [ $(id -u $USER_NAME &>/dev/null) ]; then
+  if [[ ! $(id -u $USER_NAME &>/dev/null) ]]; then
     # Crete User
     useradd -m -u $PUID -g $PGID -o -s /bin/bash $USER_NAME 
     # Create Home Dir
