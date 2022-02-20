@@ -21,6 +21,6 @@ if ! id "$1" &>/dev/null; then
       echo "Public key from env variable added"
 fi
 
-/usr/sbin/sshd -D -e -d -p 22
+# /usr/sbin/sshd -D -e -d -p 22
 
-docker run -d -e USER_NAME=test -e PUBLIC_KEY="$(cat /home/ssm-user/.ssh/id_ed25519.pub)" ghcr.io/ananthartha/python-dev
+# docker run -d -e USER_NAME=test -e PUBLIC_KEY="$(cat /home/ssm-user/.ssh/id_ed25519.pub)" ghcr.io/ananthartha/python-dev
