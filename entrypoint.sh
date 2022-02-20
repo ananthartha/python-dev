@@ -10,7 +10,7 @@ mkdir -p /run/sshd
 
 if ! id "$1" &>/dev/null; then
   [ $(getent group developer) ] || groupadd -g $PGID -o developer
-  [ $(id -u $USER_NAME &>/dev/null) || useradd -m -u $PUID -g $PGID -o -s /bin/bash $USER_NAME 
+  [ $(id -u $USER_NAME &>/dev/null) ] || useradd -m -u $PUID -g $PGID -o -s /bin/bash $USER_NAME 
 
   mkdir -p \
     /home/$USER_NAME/.ssh
@@ -22,3 +22,5 @@ if ! id "$1" &>/dev/null; then
 fi
 
 /usr/sbin/sshd -D -e -d -p 22
+
+docker run -d -e USER_NAME=test -e PUBLIC_KEY="$(cat /home/ssm-user/.ssh/id_ed25519.pub)" ghcr.io/ananthartha/python-dev
