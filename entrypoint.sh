@@ -25,4 +25,4 @@ if ! id "$1" &>/dev/null; then
   fi
 fi
 
-/usr/sbin/sshd -D -e -d -p 22
+/usr/sbin/sshd -D -e -p 22
